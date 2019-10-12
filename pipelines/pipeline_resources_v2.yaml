@@ -11,5 +11,6 @@ jobs:
     public: true
     plan:
       - get: example-repository
+        trigger: true
       - task: hello-world
         file: example-repository/tasks/hello_world_task.yaml

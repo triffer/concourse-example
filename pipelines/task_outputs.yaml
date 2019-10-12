@@ -1,0 +1,40 @@
+---
+resources:
+  - name: example-repository
+    type: git
+    source:
+      uri: https://github.com/triffer/concourse-example.git
+      branch: master
+
+jobs:
+  - name: create-file-job
+    plan:
+      - get: example-repository
+      - task: create-files
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source: {repository: busybox}
+
+          inputs:
+            - name: example-repository
+          outputs:
+            - name: some-files
+
+          run:
+            path: example-repository/scripts/create_some_files.sh
+
+      - task: show-some-files
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source: {repository: busybox}
+
+          inputs:
+            - name: example-repository
+            - name: some-files
+
+          run:
+            path: example-repository/scripts/show_files.sh

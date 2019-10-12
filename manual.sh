@@ -14,3 +14,9 @@ fly -t test set-pipeline -c ./pipelines/basic-pipeline.yaml -p hello-world
 
 # Update basic pipeline
 fly -t test set-pipeline -c ./pipelines/basic-pipeline_v2.yaml -p hello-world
+
+# Configure pipeline resources
+fly -t test set-pipeline -c ./pipelines/pipeline_resources.yaml -p pipeline-resources
+
+# Update pipeline resources with trigger to automatically start on new version
+fly -t test set-pipeline -c ./pipelines/pipeline_resources_v2.yaml -p pipeline-resources
