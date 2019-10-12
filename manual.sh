@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Start Concourse using DOcker Compose
+# Start Concourse using Docker Compose
 docker-compose -f ./concourse/docker-compose.yml up -d
 
 # Add target
