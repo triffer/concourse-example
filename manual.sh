@@ -27,3 +27,5 @@ fly -t test set-pipeline -c ./pipelines/task-outputs.yaml -p task-outputs
 
 # Configure pipeline resources
 fly -t test sp -c ./pipelines/pipeline-parameters.yaml -p pipeline-parameters
+# Now set missing variables
+fly -t test sp -c ./pipelines/pipeline-parameters.yaml -p pipeline-parameters -v cat-name=garfield -v dog-name=odie
