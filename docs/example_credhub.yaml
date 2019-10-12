@@ -1,0 +1,31 @@
+# pipeline-config
+- name: /concourse/main/pipeline-config-repository
+  type: value
+  value: my-company/pipeline-config.git
+
+- name: /concourse/main/pipeline-config-branch
+  type: value
+  value: master
+
+- name: /concourse/main/pipeline-config-github-deploy-key
+  type: value
+  value: |
+
+# lib_framework
+- name: /concourse/main/lib_framework/git-repository
+  type: value
+  value: my-company/lib_framework
+
+- name: /concourse/main/lib_framework/github-deploy-key
+  type: value
+  value: my-secret-key
+
+  # lib_something-else
+- name: /concourse/main/lib_something-else/git-repository
+  type: value
+  value: my-company/lib_something-else
+
+- name: /concourse/main/lib_something-else/github-deploy-key
+  type: value
+  value: my-secret-key
+
