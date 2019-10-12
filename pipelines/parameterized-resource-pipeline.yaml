@@ -1,0 +1,15 @@
+---
+resources:
+  - name: example-repository
+    type: git
+    source:
+      uri: ((git-repository))
+      branch: ((git-branch))
+
+jobs:
+  - name: job-hello-world
+    public: true
+    plan:
+      - get: example-repository
+      - task: hello-world
+        file: example-repository/tasks/hello_world_task.yaml
