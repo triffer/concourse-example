@@ -10,6 +10,7 @@ jobs:
   - name: create-file-job
     plan:
       - get: example-repository
+        trigger: true
       - task: create-files
         config:
           platform: linux

@@ -8,7 +8,6 @@ resources:
 
 jobs:
   - name: job-hello-world
-    public: true
     plan:
       - get: example-repository
         trigger: true
