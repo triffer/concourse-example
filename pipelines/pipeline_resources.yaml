@@ -1,0 +1,15 @@
+---
+resources:
+  - name: example-repository
+    type: git
+    source:
+      uri: https://github.com/triffer/concourse-example.git
+      branch: master
+
+jobs:
+  - name: job-hello-world
+    public: true
+    plan:
+      - get: resource-tutorial
+      - task: hello-world
+        file: example-repository/tasks/task_hello_world.yaml
