@@ -34,5 +34,8 @@ fly -t test sp -c ./pipelines/pipeline-parameters.yaml -p pipeline-parameters -v
 # Configure parameterized resource pipeline
 fly -t test sp -c ./pipelines/parameterized-resource-pipeline.yaml -p parameterized-resource-pipeline --load-vars-from ./pipeline-vars/parameterized-resource-pipeline-config.yaml
 
+# Configure multi job pipeline
+fly -t test sp -c ./pipelines/multi-job-pipeline.yaml -p multi-job-pipeline
+
 # Shutdown Concourse
 docker-compose -f ./concourse/docker-compose.yml down

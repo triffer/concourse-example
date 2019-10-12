@@ -1,0 +1,24 @@
+---
+resources:
+  - name: example-repository
+    type: git
+    source:
+      uri: https://github.com/triffer/concourse-example.git
+      branch: master
+
+jobs:
+  - name: job-hello-world
+    plan:
+      - get: example-repository
+        trigger: true
+      - task: hello-world
+        file: example-repository/tasks/hello_world_task.yaml
+
+  - name: job-hello-again
+    plan:
+      - get: example-repository
+        trigger: true
+        passed:
+          - job-hello-world
+      - task: hello-world
+        file: example-repository/tasks/hello_world_task.yaml
